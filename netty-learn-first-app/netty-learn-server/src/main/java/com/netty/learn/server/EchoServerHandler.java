@@ -12,6 +12,7 @@ import io.netty.util.CharsetUtil;
  * @author 史偕成
  * @date 2023/04/24 13:22
  **/
+// 使用下面的注解可以使用同样的实例
 @ChannelHandler.Sharable
 public class EchoServerHandler extends ChannelInboundHandlerAdapter {
 
@@ -44,13 +45,15 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
     }
 
     /**
-     * 打印一次栈追踪
+     * 允许对异常的任何子类型做出反应， 在这里你记录异常关闭连接。虽然一个更加完善的应用程序也许会尝试从异常中恢复，但在这个场景下 只是通过间的关闭连接来通知远程节点
+     *
      * @param ctx
      * @param cause
      * @throws Exception
      */
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        // 打印一次栈追踪
         cause.printStackTrace();
         // 关闭channel
         ctx.close();

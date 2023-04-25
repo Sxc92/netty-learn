@@ -5,39 +5,38 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.learn.netty</groupId>
-        <artifactId>netty</artifactId>
+        <artifactId>netty-learn-first-app</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>netty-learn-first-app</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>netty-learn-server</module>
-        <module>netty-learn-client</module>
-    </modules>
+    <artifactId>netty-learn-client</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <echo-server.hostname>localhost</echo-server.hostname>
-        <echo-server.port>8888</echo-server.port>
     </properties>
 
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <artifactId>maven-failsafe-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-            </plugin>
-            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>com.netty.learn.client.EchoClient</mainClass>
+                    <arguments>
+                        <argument>${echo-server.hostname}</argument>
+                        <argument>${echo-server.port}</argument>
+                    </arguments>
+                </configuration>
             </plugin>
         </plugins>
     </build>
