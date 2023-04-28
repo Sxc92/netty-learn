@@ -7,6 +7,8 @@
     <modules>
         <module>netty-learn-basic</module>
         <module>netty-learn-first-app</module>
+        <module>netty-learn-component</module>
+        <module>netty-learn-transports</module>
     </modules>
     <groupId>com.learn.netty</groupId>
     <artifactId>netty</artifactId>
