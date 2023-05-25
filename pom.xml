@@ -9,6 +9,8 @@
         <module>netty-learn-first-app</module>
         <module>netty-learn-component</module>
         <module>netty-learn-transports</module>
+        <module>netty-learn-demo</module>
+        <module>nio-learn</module>
     </modules>
     <groupId>com.learn.netty</groupId>
     <artifactId>netty</artifactId>
